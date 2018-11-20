@@ -1,5 +1,5 @@
 {
-  "name": "exam-samples",
+  "name": "pascal-triangle-generator",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
