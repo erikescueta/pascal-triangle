@@ -1,0 +1,15 @@
+@include import-font('FontAwesomeBrands', "/fonts/FontAwesome/fa-brands-400", normal, normal, eot woff2 woff ttf svg);
+.fab {
+  font-family: 'FontAwesomeBrands';
+}
+@include import-font('FontAwesome', "/fonts/FontAwesome/fa-regular-400", 400, normal, eot woff2 woff ttf svg);
+.far {
+    font-family: 'FontAwesome';
+    font-weight: 400;
+}
+@include import-font('FontAwesome', "/fonts/FontAwesome/fa-solid-900", 900, normal, eot woff2 woff ttf svg);
+.fa,
+.fas {
+    font-family: 'FontAwesome';
+    font-weight: 900;
+}

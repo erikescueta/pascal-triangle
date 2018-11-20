@@ -1,0 +1,18 @@
+//Glegoo
+@include import-font(Glegoo, "/assets/fonts/Glegoo/Glegoo-Regular", normal, normal, ttf);
+@include import-font(Glegoo, "/assets/fonts/Glegoo/Glegoo-Bold", bold, normal, ttf);
+
+//Karla
+@include import-font(Karla, "/assets/fonts/Karla/Karla-Regular", normal, normal, ttf);
+@include import-font(Karla, "/assets/fonts/Karla/Karla-Bold", bold, normal, ttf);
+@include import-font(Karla, "/assets/fonts/Karla/Karla-Italic", normal, italic, ttf);
+@include import-font(Karla, "/assets/fonts/Karla/Karla-BoldItalic", bold, italic, ttf);
+
+//ContrailOne
+@include import-font(ContrailOne, "/assets/fonts/ContrailOne/ContrailOne-Regular", normal, normal, ttf);
+
+//SourceCodePro
+@include import-font(SourceCodePro, "/assets/fonts/SourceCodePro/SourceCodePro-Regular", normal, normal, ttf);
+@include import-font(SourceCodePro, "/assets/fonts/SourceCodePro/SourceCodePro-Bold", bold, normal, ttf);
+@include import-font(SourceCodePro, "/assets/fonts/SourceCodePro/SourceCodePro-Light", normal, italic, ttf);
+@include import-font(SourceCodePro, "/assets/fonts/SourceCodePro/SourceCodePro-SemiBold", bold, italic, ttf);

@@ -1,0 +1,406 @@
+@mixin opacity($opacity) {
+  opacity:        $opacity;
+  $opacity-ie:    $opacity * 100;
+  filter:         alpha(opacity=$opacity-ie);
+}
+
+@mixin box-shadow($top:"", $left:"", $blur:"", $thickness:"", $color:"", $inset:"") {
+  @if fn-isNum($top)==false and $top==none{
+      -webkit-box-shadow: none;
+      -moz-box-shadow:    none;
+      box-shadow:         none;
+  }
+  @else {
+      -webkit-box-shadow: fn-px($top) fn-px($left) fn-px($blur) fn-px($thickness) $color #{$inset};
+      -moz-box-shadow:    fn-px($top) fn-px($left) fn-px($blur) fn-px($thickness) $color #{$inset};
+      box-shadow:         fn-px($top) fn-px($left) fn-px($blur) fn-px($thickness) $color #{$inset};
+  }
+}
+
+@mixin box-size($prop: border-box) {
+-webkit-box-sizing: $prop;
+-moz-box-sizing:    $prop;
+box-sizing:         $prop;
+}
+
+@mixin margins($top:"", $right:"", $bottom:"", $left:"", $important: false) {
+  $sides: top right bottom left;
+  $single-prop: false;
+
+  @if $important != false and $important == true {
+      $important: !important;
+  }
+  @else {
+      $important: null;
+  }
+
+  @each $side in $sides {
+      @if $top == $side {
+          $single-prop: true; 
+      }
+  }
+
+  @if $single-prop == true {
+      $right: fn-layout-prop($right);
+      margin-#{$top}: $right $important;
+  }
+  @else {
+      $top:       fn-layout-prop($top);
+      $right:     fn-layout-prop($right);
+      $bottom:    fn-layout-prop($bottom);
+      $left:      fn-layout-prop($left);
+      @if $right == "" and $bottom == "" and $left == "" {
+          margin: $top $important;
+      }
+      @else if $bottom == "" and $left == "" {
+          margin: $top $right $important;
+      }
+      @else if $left == "" {
+          margin: $top $right $bottom $important;
+      }
+      @else {
+          margin: $top $right $bottom $left $important;
+      }
+  }
+}
+
+@mixin paddings($top:"", $right:"", $bottom:"", $left:"", $important: false) {
+  $sides: top right bottom left;
+  $single-prop: false;
+
+  @if $important != false and $important == true {
+      $important: !important;
+  }
+  @else {
+      $important: null;
+  }
+
+  @each $side in $sides {
+      @if $top == $side {
+          $single-prop: true; 
+      }
+  }
+
+  @if $single-prop == true {
+      $right: fn-layout-prop($right);
+      padding-#{$top}: $right $important;
+  }
+  @else {
+      $top:       fn-layout-prop($top);
+      $right:     fn-layout-prop($right);
+      $bottom:    fn-layout-prop($bottom);
+      $left:      fn-layout-prop($left);
+      @if $right == "" and $bottom == "" and $left == "" {
+          padding: $top $important;
+      }
+      @else if $bottom == "" and $left == "" {
+          padding: $top $right $important;
+      }
+      @else if $left == "" {      
+          padding: $top $right $bottom $important;
+      }
+      @else {
+          padding: $top $right $bottom $left $important;
+      }
+  }    
+}
+
+@mixin font-size-em($fontsize) {
+  font-size: fn-em($fontsize);
+}
+
+@mixin font-family($fontname) {
+  font-family: $fontname;
+}
+
+@mixin font-weight($weight) {
+  font-weight: fn-isWeight($weight);
+}
+
+@mixin text-shadow($x, $y, $spread, $color) {
+  text-shadow: fn-px($x) fn-px($y) fn-px($spread) $color;
+}
+
+@mixin line-height($lineheight, $fontsize: $fontsize-browser) {
+  line-height: fn-px($lineheight)/fn-px($fontsize) * 1em;
+}
+
+@mixin borders($border-side: "", $border-width: "", $border-type: "", $border-color: "") {
+  @if $border-side==top or $border-side==right or $border-side==bottom or $border-side==left {
+      @if fn-isNum($border-width)==false and $border-width==none or $border-width==0 {
+          $border-width: none;
+          $border-type: null;
+          $border-color: null;
+      }
+      @else {
+          $border-width: fn-px($border-width);
+      }
+      border-#{$border-side}: $border-width $border-type $border-color;
+  }
+  @if $border-side==all {
+      border: fn-px($border-width) $border-type $border-color;
+  }
+  @if $border-side==none {
+      border: none;
+  }
+}
+
+@mixin outlines($outline-width: 0, $outline-type: solid, $outline-color: "") {
+  @if fn-isNum($outline-width)==false and $outline-width==none or $outline-width==0 {
+      $outline-width: none;
+      $outline-type: null;
+      $outline-color: null;
+  }
+  @else {
+      $outline-width: fn-px($outline-width);
+  }
+  outline: $outline-width $outline-type $outline-color;
+}
+
+@mixin border-radius($val: 0) {
+-webkit-border-radius: $val;
+-moz-border-radius:    $val;
+border-radius:         $val;
+}
+
+@mixin gradients($top-color, $top-opacity, $bottom-color, $bottom-opacity) {
+  background: rgba($top-color,$top-opacity);
+  background: -moz-linear-gradient(top, rgba($top-color,$top-opacity) 0%, rgba($bottom-color,$bottom-opacity) 100%);
+  background: -webkit-linear-gradient(top, rgba($top-color,$top-opacity) 0%,rgba($bottom-color,$bottom-opacity) 100%);
+  background: linear-gradient(to bottom, rgba($top-color,$top-opacity) 0%,rgba($bottom-color,$bottom-opacity) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$top-color}', endColorstr='#{$bottom-color}',GradientType=0 );
+}
+
+@mixin radial-gradients($inner-color, $inner-opacity, $outer-color, $outer-opacity) {
+background: radial-gradient(ellipse at center, rgba($inner-color,$inner-opacity) 0%,rgba($outer-color,$outer-opacity) 100%);
+background: -moz-radial-gradient(center, ellipse farthest-corner, rgba($inner-color,$inner-opacity) 0%, rgba($outer-color,$outer-opacity) 100%);
+background: -webkit-radial-gradient(center, ellipse farthest-corner, rgba($inner-color,$inner-opacity) 0%,rgba($outer-color,$outer-opacity) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$inner-color}', endColorstr='#{$outer-color}',GradientType=1 );
+}
+
+@mixin import-font($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+$src: null;
+  $srceot: null;
+$extmods: (
+  eot: "?",
+  svg: "#" + fn-str-replace($name, " ", "_")
+);
+$formats: (
+  otf: "opentype",
+  ttf: "truetype"
+);
+@each $ext in $exts {
+  $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+  $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+  $src: append($src, url(#{$path}.#{$extmod}) format(quote($format)), comma);
+}
+@font-face {
+  font-family: quote($name);
+  font-style: $style;
+  font-weight: $weight;
+      src: url(#{$path}.eot) format(quote(eot));
+  src: $src;
+}
+}
+
+@mixin breakpoint($breakpoint, $min-max: max-width, $media: screen, $orientation: all) {
+$breakpoint: fn-layout-prop($breakpoint);
+
+@if($orientation == all) {
+  @media #{$media} and (#{$min-max}: #{$breakpoint}) {
+    @content;
+  }
+}
+@else {
+  @media #{$media} and (#{$min-max}: #{$breakpoint}) and (orientation: #{$orientation}) {
+    @content;
+  }
+}
+}
+
+@mixin animation-keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+      @content;
+  }
+  @-moz-keyframes #{$animationName} {
+      @content;
+  }
+  @-ms-keyframes #{$animationName} {
+      @content;
+  }
+  @-o-keyframes #{$animationName} {
+      @content;
+  }  
+  @keyframes #{$animationName} {
+      @content;
+  }
+}
+
+@mixin animation($animationName: "",$duration: 0.6s, $timing: linear, $delay: 0s, $iteration: 1, $direction: normal, $fillMode: forwards) {
+-webkit-animation:#{$duration} #{$timing} #{$delay} #{$iteration} #{$direction} #{$fillMode} #{$animationName}; 
+-moz-animation:   #{$duration} #{$timing} #{$delay} #{$iteration} #{$direction} #{$fillMode} #{$animationName};
+-ms-animation:    #{$duration} #{$timing} #{$delay} #{$iteration} #{$direction} #{$fillMode} #{$animationName};
+-o-animation:     #{$duration} #{$timing} #{$delay} #{$iteration} #{$direction} #{$fillMode} #{$animationName};
+animation:        #{$duration} #{$timing} #{$delay} #{$iteration} #{$direction} #{$fillMode} #{$animationName};      
+}
+
+@mixin table($table: table, $valign: "") {
+  $table-displays: table table-caption table-column-group table-header-group table-footer-group table-row-group table-cell table-column table-row;
+
+  @each $table-display in $table-displays {
+      @if $table == $table-display {
+          $table: $table-display;
+      }
+      @else {
+          $table: table;
+      }
+  }
+  display: #{$table};
+
+  $table-valigns: top middle bottom;
+  @each $table-valign in $table-valigns {
+      @if $valign == $table-valign {
+          vertical-align: #{$valign};
+      }
+  }
+}
+
+@mixin text-stretch($x: 1, $y: 1){
+  -webkit-transform:scale($x, $y);
+  -moz-transform:scale($x, $y);
+  -ms-transform:scale($x, $y);
+  -o-transform:scale($x, $y);
+  transform:scale($x, $y);
+}
+
+@mixin rotate($x: 0){
+  $deg: $x * 1deg;
+  -moz-transform: rotate($deg);
+  -ms-transform: rotate($deg);
+  -o-transform: rotate($deg);
+  -webkit-transform: rotate($deg);
+  transform: rotate($deg);
+}
+
+@mixin origin($x:0, $y:0){
+  -webkit-transform-origin: $x $y;
+  -ms-transform-origin: $x $y;
+  transform-origin: $x $y;
+}
+
+@mixin skewX($x: 0){
+  $deg: $x * 1deg;
+  -moz-transform: skewX($deg);
+  -ms-transform: skewX($deg);
+  -o-transform: skewX($deg);
+  -webkit-transform: skewX($deg);
+  transform: skewX($deg);
+}
+
+@mixin rotate-and-skewX($rotatex:0, $skewxy:0){
+  $rotatedeg: $rotatex * 1deg;
+  $skewxdeg: $skewxy * 1deg;
+  -moz-transform: rotate($rotatedeg) skewX($skewxdeg);
+  -ms-transform: rotate($rotatedeg) skewX($skewxdeg);
+  -o-transform: rotate($rotatedeg) skewX($skewxdeg);
+  -webkit-transform: rotate($rotatedeg) skewX($skewxdeg);
+  transform: rotate($rotatedeg) skewX($skewxdeg);
+}
+
+@mixin background-filter($filter, $val){
+  @if(fn-isFilter($filter)){
+      -webkit-filter: $filter+unquote('(#{$val})');
+         -moz-filter: $filter+unquote('(#{$val})');
+          -ms-filter: $filter+unquote('(#{$val})');
+           -o-filter: $filter+unquote('(#{$val})');
+              filter: $filter+unquote('(#{$val})');
+  }
+}
+
+@mixin zoom($x:0){
+  -moz-transform: scale($x);
+  -ms-transform: scale($x);
+  -o-transform: scale($x);
+  -webkit-transform: scale($x);
+  transform: scale($x);
+}
+
+@mixin scale3d($x:0, $y:0, $z:0){
+  -moz-transform: scale3d($x, $y, $z);
+  -ms-transform: scale3d($x, $y, $z);
+  -o-transform: scale3d($x, $y, $z);
+  -webkit-transform: scale3d($x, $y, $z);
+  transform: scale3d($x, $y, $z);
+}
+
+@mixin line-break($breaktype: each){
+
+  @if $breaktype == each {
+      -ms-word-break: break-all;
+      word-break: break-all;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      white-space: normal;
+  }
+
+  @else if $breaktype == hyphen {
+      -ms-word-break: break-word;
+      word-break: break-word;
+      -webkit-hyphens: auto;
+      -moz-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto;
+      white-space: normal;
+  }
+
+  @else if $breaktype == wrap-word {
+      -ms-word-break: break-word;
+      word-break: break-word;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      white-space: normal;
+  }
+
+  @else if $breaktype == no-break {
+      -ms-word-break: keep-all;
+      word-break: keep-all;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      white-space: nowrap;
+  }
+}
+
+@mixin placeholder($color: #EEE, $opacity: 1) {
+&::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $color;
+  opacity: $opacity; /* Firefox */
+}
+
+&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: $color;
+}
+
+&::-ms-input-placeholder { /* Microsoft Edge */
+  color: $color;
+}
+}
+
+@mixin transitions($rules...) {
+-webkit-transition: $rules;
+-ms-transition: $rules;
+transition: $rules;
+}
+
+@mixin translate($x: 0, $y: 0, $z: 0) {
+-moz-transform: translate3d($x,$y,$z);
+  -ms-transform: translate3d($x,$y,$z);
+  -o-transform: translate3d($x,$y,$z);
+  -webkit-transform: translate3d($x,$y,$z);
+  transform: translate3d($x,$y,$z);
+}

@@ -1,0 +1,35 @@
+/*
+  Vendors
+*/
+@import "_vendors/_font-awesome.scss";
+@import "_vendors/_normalize.scss";
+
+/*
+  Utilities
+*/
+@import "_utilities/_utilities-functions.scss";
+@import "_utilities/_utilities-mixins.scss";
+@import "_utilities/_utilities-extensions.scss";
+@import "_utilities/_utilities-animations.scss";
+@import "_utilities/_utilities-fonts.scss";
+@import "_utilities/_utilities-icons.scss";
+
+/*
+  Variables
+*/
+@import "_variables/_variables-colors.scss";
+@import "_variables/_variables-icons.scss";
+@import "_variables/_variables-images.scss";
+@import "_variables/_variables-layouts.scss";
+@import "_variables/_variables-typography.scss";
+
+/*
+  Common
+*/
+@import "_common/_common-accessibility.scss";
+@import "_common/_common-forms.scss"; 
+@import "_common/_common-hyperlinks.scss";
+@import "_common/_common-icons.scss";
+@import "_common/_common-layouts.scss";
+@import "_common/_common-tables.scss";
+@import "_common/_common-typography.scss";

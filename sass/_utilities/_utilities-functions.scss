@@ -1,0 +1,118 @@
+@function fn-em($px, $bf: $fontsize-browser) {
+	$px: fn-px($px);
+	$bf: fn-px($bf);
+	@return ($px/$bf) * 1em;
+}
+
+@function fn-px($num) {
+	@if(unitless($num)){
+		@return ($num * 1px);
+	}
+	@else{
+		@return ($num);
+	}
+}
+
+@function fn-math-mult($x, $y) {
+	@return(round($x * $y));
+}
+
+@function fn-math-div($x, $y) {
+	@return(round($x / $y));
+}
+
+@function fn-math-add($x, $y) {
+	@return(round($x + $y));
+}
+
+@function fn-math-less($x, $y) {
+	@return(round($x - $y));
+}
+
+@function fn-isNum($val) {
+	@if type-of($val) == number {
+        @return $val;
+    }
+	@else {
+		@return false;
+	}
+}
+
+@function fn-isPercent($val) {
+	@if(unitless($val)){
+		@return ($val * 1px);
+	}
+	@else{
+		@return ($val);
+	}
+}
+
+@function fn-layout-prop($val) {
+    @if not fn-isNum($val) == false {
+        $val: fn-px($val);
+    }
+    @else {
+        @if not $val == "" and not $val == auto and not $val == inherit {
+            $val: auto;
+        }
+    }
+    @return $val;
+}
+
+@function fn-str-replace($str, $search, $replace: "") {
+	$index: str-index($str, $search);
+	@if $index {
+		@return str-slice($str, 1, $index - 1) + $replace + str-replace(str-slice($str, $index + str-length($search)), $search, $replace);
+	}
+	@return $str;
+}
+
+@function fn-isWeight($val) {
+    $weights: 100 200 300 400 500 600 700 800 900;
+    $lights: narrow light;
+    $mediums: medium semibold;
+    $heavies: bold strong heavy;
+    $eval: null;
+    @each $weight in $weights {
+        @if $val == $weight {
+            $eval: $val;
+        }
+    }
+    @each $light in $lights {
+        @if $val == $light {
+            $eval: 100;
+        }
+    }
+    @each $medium in $mediums {
+        @if $val == $medium {
+            $eval: 600;
+        }
+    }
+    @each $heavy in $heavies {
+        @if $val == $heavy {
+            $eval: bold;
+        }
+    }
+    @if $eval == null {
+        @return normal;
+    }
+    @else {
+        @return $eval;
+    }
+}
+
+@function fn-isFilter($val) {
+    $filters: blur brightness contrast drop-shadow grayscale hue-rotate invert opacity saturate sepia url custom;
+    $eval: null;
+    @each $filter in $filters {
+        @if $val == $filter {
+            $eval: true;
+        }
+    }
+    @if $eval == null {
+        @return false;
+    }
+    @else {
+        @return $eval;
+    }
+}

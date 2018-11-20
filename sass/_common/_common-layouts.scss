@@ -1,0 +1,61 @@
+/*
+    Global declarations
+*/
+html {
+    @include box-size(border-box);
+    @include font-family($fonts-body);
+    @include font-size-em($fontsize-browser);
+    @include line-height($lineheight-browser);
+    background-color: $color-body-background; 
+    position: relative;
+    height: 100%; 
+
+    *.mobile {
+        display: none !important;
+    }
+}
+*, *:before, *:after {
+    @include box-size(inherit); 
+}
+
+.grid {
+	display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: repeat(12, 1fr);
+	position: relative;
+  overflow: hidden;
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* IE10+ CSS styles go here */
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+  }
+
+	@include breakpoint($bp-tablet-min, min-width){
+    @for $i from 1 to 12 {
+      .column-#{$i} {
+        grid-column: span $i;
+      }
+    }
+  }
+
+  @include breakpoint($bp-tablet){
+    @for $i from 1 to 5 {
+      .column-#{$i} {
+        grid-column: span 6;
+      } 
+    }
+
+    @for $i from 6 to 12 {
+      .column-#{$i} {
+        grid-column: span 12;
+      } 
+    }
+  }
+
+	.column-12 {
+		grid-column: span $grid-column-max;
+	}
+}

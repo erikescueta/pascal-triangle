@@ -1,0 +1,236 @@
+/*
+    Weights
+*/
+strong {
+    @include font-weight(medium);
+}
+
+/*
+    Headings
+*/
+h1,
+.heading--primary {
+    @include font-family($fonts-heading);
+    @include font-weight(bold);
+    @include font-size-em($fontsize-h1);
+    @include line-height($lineheight-h1, $fontsize-h1);
+}
+h2,
+.heading--secondary {
+    @include font-family($fonts-heading);
+    @include font-weight(bold);
+    @include font-size-em($fontsize-h2);
+    @include line-height($lineheight-h2, $fontsize-h2);
+}
+h3,
+.subheading--primary {
+    @include font-family($fonts-heading);
+    @include font-weight(medium);
+    @include font-size-em($fontsize-h3);
+    @include line-height($lineheight-h3, $fontsize-h3);
+}
+h4,
+.subheading--secondary {
+    @include font-family($fonts-heading);
+    @include font-weight(medium);
+    @include font-size-em($fontsize-h4);
+    @include line-height($lineheight-h4,$fontsize-h4);
+}
+h5,
+.blockheading--primary {
+    @include font-family($fonts-heading);
+    @include font-weight(medium);
+    @include font-size-em($fontsize-h5);
+    @include line-height($lineheight-h5, $fontsize-h5);
+}
+h6,
+.blockheading--secondary {
+    @include font-family($fonts-heading);
+    @include font-weight(medium);
+    @include font-size-em($fontsize-h6);
+    @include line-height($lineheight-h6, $fontsize-h6);
+}
+
+/*
+    Lists
+*/
+ul {
+    margin: 0 0 0 30;
+    padding: 0;
+    position: relative;
+
+    li {
+        margin:0 0 20 0;
+        padding: 0;
+        @include line-height(22px);
+    }
+}
+
+ol {
+    margin: 0 0 0 30;
+    padding: 0;
+    position: relative;
+    li {
+      margin:0 0 20 0;
+      padding: 0;
+      @include line-height(22px);
+    }
+}
+
+
+/*
+    Paragraphs
+*/
+p {
+    @include font-family($fonts-body);
+    margin:0 0 20 0;
+    padding: 0;
+    @include font-size-em($fontsize-block);
+    @include line-height($lineheight-block);
+    position: relative;
+    color: $color-text-body;
+}
+
+/*
+    Truncation
+*/
+.truncate-wrapper {
+    overflow: hidden;
+    width: 100%;
+
+    .truncate {
+        overflow: hidden;
+    }
+} 
+
+code {
+  display: inline-block;
+  border: 1px solid #E0E0E0;
+  background-color: #FCFCFC;
+  line-height: 1.3em;
+  padding: 20px;
+  font-weight: 600;
+  text-align: left;
+
+  h4 {
+    margin: 0 0 20px 0;
+    padding: 10px;
+    background-color: #EEE;
+    border: 1px solid #DDD;
+    display: inline-block;
+  }
+  
+  span {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+    font-weight: normal;
+    line-height: 1.5em;
+
+    &:before {
+      position: relative;
+      content: "{ ";
+    }
+
+    &:after {
+      position: relative;
+      content: " }";
+    }
+
+    &.div {
+      &:before {
+        content: "<div";
+      }
+  
+      &:after {
+        content: "</div>";
+      } 
+    }
+
+    &.span {
+      &:before {
+        content: "<span";
+      }
+  
+      &:after {
+        content: "</span>";
+      } 
+    }
+
+    &.input {
+      &:before {
+        content: "<input";
+      }
+  
+      &:after {
+        content: "</input>";
+      } 
+    }
+
+    &.label {
+      &:before {
+        content: "<label";
+      }
+  
+      &:after {
+        content: "</label>";
+      } 
+    }
+
+    &.strong {
+      &:before {
+        content: "<strong";
+      }
+  
+      &:after {
+        content: "</strong>";
+      } 
+    }
+
+    &.link {
+      margin: 0;
+      width: auto;
+      &:before {
+        content: "<a";
+      }
+  
+      &:after {
+        content: "</a>";
+      } 
+    }
+
+    &.tab {
+      padding-left: 15px;
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.messages {
+  .message { 
+    .error {
+      @include font-family("Glegoo");
+      @include animation(an-fadein, 0.3s);
+      @include margins(10, 0);
+      @include paddings(12, 20, 10, 20);
+      @include border-radius(4px);
+      display: inline-block;
+      background-color: $color-messaging-background;
+      top: 10px;
+      color: $color-messaging-text;
+      letter-spacing: 0;
+      font-size: 0.8rem;
+
+      strong {
+        @include text-shadow(0, 0, 1px, rgba(#000, 0.5));
+      }
+    }
+
+    .error {
+      color: $color-messaging-error-text;
+      background-color: $color-messaging-error-bgcolor;
+      @include font-weight(bold);
+      @include borders(all, 1px, solid, $color-messaging-error-text);
+    }
+  }
+}

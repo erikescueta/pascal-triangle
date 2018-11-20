@@ -1,0 +1,159 @@
+@include animation-keyframes(colorize){
+  0% {
+      @include background-filter(grayscale, 50%);
+  }
+  100% {
+      @include background-filter(grayscale, 0%);
+  }
+}
+
+@include animation-keyframes(zoomIn){
+  0% {
+      @include zoom(1);
+  }
+  100% {
+      @include zoom(1.1);
+  }
+}
+
+@include animation-keyframes(unBlur){
+  0% {
+      @include background-filter(blur, 1px);
+  }
+  100% {
+      @include background-filter(blur, 0px);
+  }
+}
+
+@include animation-keyframes(an-fadein){
+  0% {
+      opacity:0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@include animation-keyframes(an-navexpand){
+0% {
+    padding-left: 0;
+}
+100% {
+    padding-left: 12px;
+}
+}
+
+@include animation-keyframes(an-blur){
+  0% {
+      @include background-filter(blur, 0px);
+      opacity: 1;
+  }
+  100% {
+      @include background-filter(blur, 2px);
+      opacity: 0.5;
+  }
+}
+
+@include animation-keyframes(an-showbrand){
+0% {
+    top: -56px;
+}
+100% {
+    top: -48px;
+}
+}
+
+@include animation-keyframes(an-colorize){ 
+0% {
+    @include background-filter(grayscale, 50%);
+}
+100% {
+    @include background-filter(grayscale, 0%);
+}
+}
+
+@include animation-keyframes(an-zoomIn){
+0% {
+    @include zoom(1);
+}
+100% {
+    @include zoom(1.1);
+}
+}
+
+@include animation-keyframes(an-unBlur) {
+0% {
+  @include background-filter(blur, 1px);
+}
+
+100% {
+  @include background-filter(blur, 0px);
+}
+}
+
+@include animation-keyframes(an-loadspinner) {
+from {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+to {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+}
+
+@include animation-keyframes(an-showresults) {
+0% {
+  opacity:0;
+  margin-top: 0;
+}
+100% {
+  opacity: 1;
+  margin-top: 40px;
+}
+}
+
+@include animation-keyframes(an-cbtoggle-fadein){
+0% {
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+  opacity:0;
+}
+100% {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  opacity: 1;
+}
+}
+
+@include animation-keyframes(an-paymentsmsg-iconLoad){
+0% {
+  -moz-transform: rotateY(-90deg);
+  -ms-transform: rotateY(-90deg);
+  -o-transform: rotateY(-90deg);
+  -webkit-transform: rotateY(-90deg);
+  transform: rotateY(-90deg);
+  opacity:0;
+}
+100% {
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  opacity: 1;
+}
+}
+
+@include animation-keyframes(an-paymentsmsg-iconZoomIn){
+0% {
+    @include zoom(0);
+}
+90% {
+  @include zoom(1.1);
+}
+100% {
+    @include zoom(1);
+}
+}

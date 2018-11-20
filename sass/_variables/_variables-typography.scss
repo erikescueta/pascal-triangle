@@ -1,0 +1,88 @@
+/*
+    Baselines
+*/
+$fontsize-browser: 16px;
+$lineheight-browser: 16px;
+$lineheight-browser-baseline: $fontsize-browser;
+$fontsize-browser-mobile: 16px;
+$lineheight-browser-mobile: 16px;
+$fontsize-hidden: 1px; 
+
+/*
+    Heading font rules
+*/
+$fontsize-h1: 54px;
+$lineheight-h1: 65px;
+$fontsize-h1-mobile: 26px;
+$lineheight-h1-mobile: 33px;
+
+$fontsize-h1--small: 42px;
+$fontsize-h1--smaller: 38px;
+$fontsize-h1--large: 58px;
+$fontsize-h1--larger: 64px;
+
+$fontsize-h2: 30px;
+$lineheight-h2: 36px;
+$fontsize-h2-mobile: 24px;
+$lineheight-h2-mobile: 29px;
+
+$fontsize-h2--larger: 34px;
+$fontsize-h2--large: 32px;
+$fontsize-h2--small: 28px;
+$fontsize-h2--smaller: 24px;
+
+$fontsize-h3: 22px;
+$lineheight-h3: 26px;
+$fontsize-h3-mobile: 20px;
+$lineheight-h3-mobile: 24px;
+
+$fontsize-h4: 20px;
+$lineheight-h4: 24px;
+$fontsize-h4-mobile: 18px;
+$lineheight-h4-mobile: 22px;
+
+$fontsize-h5: 18px;
+$lineheight-h5: 22px;
+$fontsize-h5-mobile: 16px;
+$lineheight-h5-mobile: 20px;
+
+$fontsize-h6: 16px;
+$lineheight-h6: 20px;
+$fontsize-h6-mobile: 14px;
+$lineheight-h6-mobile: 18px;
+
+/*
+    Body font rules
+*/
+$fontsize-block: $fontsize-browser;
+$fontsize-block--small: $fontsize-block * 0.9;
+$fontsize-block--smaller: $fontsize-block * 0.8;
+$fontsize-block--smallest: $fontsize-block * 0.7;
+$fontsize-block--large: $fontsize-browser * 1.1;
+$fontsize-block--larger: $fontsize-browser * 1.2;
+$fontsize-block--largest: $fontsize-browser * 1.3;
+$fontsize-block--max: $fontsize-browser * 1.4;
+$fontsize-block--minimal: 11px;
+$fontsize-block--minimal-small: 10px;
+$fontsize-block--disclaimer: 14px;
+$fontsize-block--follow-button: 15px;
+
+/*
+    Line height rules
+*/
+$lineheight-block: $lineheight-browser-baseline;
+$lineheight-block--small: $lineheight-block * 0.9;
+$lineheight-block--smaller: $lineheight-block * 0.8;
+$lineheight-block--smallest: $lineheight-block * 0.7;
+
+/*
+    Font families
+*/
+/*$fonts-default-heading: "Glegoo", sans-serif;
+$fonts-default-normal: "Karla", sans-serif;*/
+$fonts-heading: Glegoo, Helvetica, Arial, sans-serif;
+$fonts-body: Karla, Helvetica, Arial, sans-serif;
+$fonts-unicode: "Courier New", monospace;
+$fonts-password-hidden: Verdana, "Arial Black", Gadget;
+$fonts-disclaimer: Helvetica, Arial, sans-serif;
+$fonts-navigation: Helvetica, Arial, sans-serif;

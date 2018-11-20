@@ -1,0 +1,18 @@
+a {
+  color: $color-link-default;
+  text-decoration: underline;
+
+  &:link,
+  &:visited {
+    color: $color-link-default;
+    text-decoration: underline;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    box-shadow: none;
+    color: $color-link-hover;
+    text-decoration: underline;
+  }
+}

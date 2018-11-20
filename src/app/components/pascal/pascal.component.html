@@ -1,0 +1,41 @@
+<div class="pascal">
+  <form class="pascal__form" (ngSubmit)="generatePascal()">
+    <label for="PascalRowInput" class="pascal__label">
+      Number of rows
+    </label>
+    <input 
+      type="number" 
+      class="pascal__input" 
+      autocomplete="off" 
+      id="PascalRowInput" 
+      name="rowNum" 
+      placeholder="Enter the number of rows for your pascal triangle" 
+      [(ngModel)]="rowNum"  
+      minlength="1" 
+      #rowNumber="ngModel"
+      required
+    />
+    <input 
+      class="pascal__button pascal__button--submit"
+      type="submit"
+      value="Generate"
+    />
+    <div class="pascal__error" *ngIf="invalidRowInput">
+      Please enter a valid positive real number
+    </div>
+  </form>
+  <div 
+    class="pascal__pascal-triangle pascal-triangle" 
+    *ngIf="pascalArray.length > 0"
+    [ngStyle]="{'grid-template-columns': 'repeat(' + row + ', 1fr)'}"
+    >
+    <ul class="pascal-triangle__row" *ngFor="let row of pascalArray">
+      <li 
+        class="pascal-triangle__column" 
+        [ngStyle]="{'grid-column.span': row}"
+        *ngFor="let col of row">
+          <span>{{col}}</span>
+        </li>
+    </ul>
+  </div>
+</div>

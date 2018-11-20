@@ -1,0 +1,45 @@
+/*
+    Grid
+*/
+$grid-column-min: 1;
+$grid-column-max: 12;
+$grid-column-gutter: 0;
+
+$susy: (
+    'columns': susy-repeat($grid-column-max),
+    'gutters': $grid-column-gutter,
+    'spread': 'narrow',
+    'container-spread': 'narrow',
+);
+
+/*
+    Breakpoints
+*/
+$bp-nano: 480;
+$bp-mobile: 767; 
+$bp-mobile-min: 768;
+$bp-tablet: 991;
+$bp-tablet-min: 992;
+$bp-desktop: 1199;
+$bp-desktop-min: 1200;
+$bp-navigation: 768;
+
+/*
+    Margins
+*/
+$margin-default: 12px;
+$margin-narrow: 8px;
+$margin-wide: 24px;
+
+/*
+    Paddings
+*/
+$padding-default: 12px;
+$padding-narrow: 8px;
+$padding-wide: 24px;
+
+/*
+    column width on dashboard
+*/
+$mypets-claims__subnode-icon-width: 45%;
+$mypets-claims__received-date-width: 20%;
