@@ -1,7 +1,7 @@
 <div class="pascal">
   <form class="pascal__form" (ngSubmit)="generatePascal()">
     <label for="PascalRowInput" class="pascal__label">
-      Number of rows
+      Rows
     </label>
     <input 
       type="number" 
@@ -9,19 +9,17 @@
       autocomplete="off" 
       id="PascalRowInput" 
       name="rowNum" 
-      placeholder="Enter the number of rows for your pascal triangle" 
+      placeholder="12345..." 
       [(ngModel)]="rowNum"  
       minlength="1" 
       #rowNumber="ngModel"
       required
     />
-    <input 
-      class="pascal__button pascal__button--submit"
-      type="submit"
-      value="Generate"
-    />
+    <button class="pascal__button pascal__button--submit">
+        <img src="/assets/images/logo-icon.png" />
+    </button>
     <div class="pascal__error" *ngIf="invalidRowInput">
-      Please enter a valid positive real number
+      Please enter a positive real number
     </div>
   </form>
   <div 

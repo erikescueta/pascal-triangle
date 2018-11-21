@@ -1,0 +1,166 @@
+.pascal {
+  display: block;
+  text-align: center;
+}
+
+.pascal .pascal__form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  -ms-grid-columns: (1fr)[12];
+      grid-template-columns: repeat(12, 1fr);
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  width: 320px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pascal .pascal__form .pascal__label {
+  grid-column: span 3;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 0;
+  padding: 10px;
+  color: #FFF;
+  background-color: #0087F5;
+  border: 2px solid #0087F5;
+}
+
+.pascal .pascal__form .pascal__input {
+  grid-column: span 7;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  text-align: left;
+  border: 2px solid #0087F5;
+  border-right-width: 0;
+  font-size: 0.9em;
+}
+
+.pascal .pascal__form .pascal__input:focus, .pascal .pascal__form .pascal__input:hover, .pascal .pascal__form .pascal__input:active {
+  border: 2px solid #0087F5;
+  outline: 0;
+}
+
+.pascal .pascal__form .pascal__input::-webkit-input-placeholder {
+  color: #000;
+  opacity: 0.3;
+}
+
+.pascal .pascal__form .pascal__input:-ms-input-placeholder {
+  color: #000;
+  opacity: 0.3;
+}
+
+.pascal .pascal__form .pascal__input::-ms-input-placeholder {
+  color: #000;
+  opacity: 0.3;
+}
+
+.pascal .pascal__form .pascal__input::placeholder {
+  color: #000;
+  opacity: 0.3;
+}
+
+.pascal .pascal__form .pascal__button {
+  grid-column: span 2;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  margin-left: -2px;
+  padding: 3px 0 0 0;
+  border: 2px solid #0087F5;
+  border-left-width: 0;
+  background-color: #FFF;
+  color: #082E7F;
+  cursor: pointer;
+}
+
+.pascal .pascal__form .pascal__button:focus, .pascal .pascal__form .pascal__button:hover, .pascal .pascal__form .pascal__button:active {
+  border: 2px solid #0087F5;
+  border-left-width: 0;
+  outline: 0;
+}
+
+.pascal .pascal__form .pascal__button:hover img {
+  -webkit-filter: invert(100%) grayscale(100%) brightness(30%) sepia(100%) hue-rotate(-180deg) saturate(700%) contrast(0.7);
+          filter: invert(100%) grayscale(100%) brightness(30%) sepia(100%) hue-rotate(-180deg) saturate(700%) contrast(0.7);
+}
+
+.pascal .pascal__form .pascal__button img {
+  height: 24px;
+  width: 24px;
+  display: inline-block;
+  -webkit-filter: invert(100%) grayscale(50%) brightness(75%);
+          filter: invert(100%) grayscale(50%) brightness(75%);
+}
+
+.pascal .pascal__form .pascal__error {
+  grid-column: span 12;
+  color: #DB0000;
+  padding: 10px;
+  margin-top: 5px;
+  -webkit-animation: 0.3s ease-out 0s 1 normal forwards an-showErrorMessage;
+          animation: 0.3s ease-out 0s 1 normal forwards an-showErrorMessage;
+}
+
+.pascal .pascal__pascal-triangle {
+  display: inline-block;
+  width: 100%;
+  border: 6px solid #0087F5;
+  margin: 15px auto;
+  padding: 20px;
+  font-size: 0.8em;
+  -webkit-animation: 0.6s ease-out 0s 1 normal forwards an-showTriangle;
+          animation: 0.6s ease-out 0s 1 normal forwards an-showTriangle;
+}
+
+.pascal .pascal__pascal-triangle .pascal-triangle__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 0 0 -1px 0;
+  width: 100%;
+  color: #062F7F;
+  border: 1px solid #EFEFEF;
+  font-weight: bold;
+}
+
+.pascal .pascal__pascal-triangle .pascal-triangle__row:nth-child(odd) {
+  background-color: rgba(239, 239, 239, 0.5);
+}
+
+.pascal .pascal__pascal-triangle .pascal-triangle__row .pascal-triangle__column {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+  border-left: 1px solid #EFEFEF;
+  border-right: 1px solid #EFEFEF;
+}
+
+.pascal .pascal__pascal-triangle .pascal-triangle__row .pascal-triangle__column span {
+  display: inline-block;
+  padding: 10px;
+  text-align: center;
+  overflow: hidden;
+}

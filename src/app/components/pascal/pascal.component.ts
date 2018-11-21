@@ -68,7 +68,7 @@ export class PascalComponent implements OnInit {
           /* Push the current row values to the Pascal array model */
           this.pascalArray.push(computedArray);
 
-          /* Prepare for computing the next row values */
+          /* Prepare for computing the next row values in primary for loop */
           previousArray.splice(0, previousArray.length, ...computedArray);
         }
       }
