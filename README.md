@@ -1,6 +1,7 @@
 # Pascal Triangle Generator
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+You can try it here: https://erikescueta.github.io/pascal-triangle/
 
 ## Development server
 
