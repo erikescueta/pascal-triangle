@@ -10,7 +10,8 @@ import { FormsModule } from '@angular/forms';
 export class PascalComponent implements OnInit {
 
   public rowNum;
-  public invalidRowInput = false;
+  public validRowInput = false;
+  public loadingPascal = false;
   public pascalArray = [];
 
   constructor() { }
@@ -19,18 +20,29 @@ export class PascalComponent implements OnInit {
   }
 
   validateRowInput() {
-    if (this.rowNum <= 0 || this.rowNum === undefined || this.rowNum === null) {
-      this.invalidRowInput = true;
-    } else {
-      this.invalidRowInput = false;
+    this.validRowInput = false;
+
+    /* Check if input value is undefined or null */
+    if (this.rowNum !== undefined || this.rowNum !== null) {
+
+      /* Check if input value is from 1-100 only */
+      if (this.rowNum > 0 && this.rowNum < 101) {
+        this.validRowInput = true;
+      }
     }
   }
 
   generatePascal() {
     event.preventDefault();
+
+    /* Validate if input contains a positive real number */
     this.validateRowInput();
 
-    if (!this.invalidRowInput) {
+    /* Start loading spinner */
+    this.loadingPascal = true;
+
+    if (this.validRowInput) {
+
       /* Empty the Pascal array model */
       this.pascalArray.splice(0, this.pascalArray.length);
 
@@ -73,5 +85,8 @@ export class PascalComponent implements OnInit {
         }
       }
     }
+
+    /* Stop loading spinner */
+    this.loadingPascal = false;
   }
 }

@@ -29,7 +29,7 @@
   padding: 10px;
   color: #FFF;
   background-color: #0087F5;
-  border: 2px solid #0087F5;
+  border: 3px solid #0087F5;
 }
 
 .pascal .pascal__form .pascal__input {
@@ -39,13 +39,14 @@
           align-items: center;
   padding: 10px;
   text-align: left;
-  border: 2px solid #0087F5;
+  border: 3px solid #0087F5;
   border-right-width: 0;
   font-size: 0.9em;
+  font-weight: bold;
 }
 
 .pascal .pascal__form .pascal__input:focus, .pascal .pascal__form .pascal__input:hover, .pascal .pascal__form .pascal__input:active {
-  border: 2px solid #0087F5;
+  border: 3px solid #0087F5;
   outline: 0;
 }
 
@@ -75,9 +76,9 @@
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  margin-left: -2px;
+  margin-left: -3px;
   padding: 3px 0 0 0;
-  border: 2px solid #0087F5;
+  border: 3px solid #0087F5;
   border-left-width: 0;
   background-color: #FFF;
   color: #082E7F;
@@ -85,7 +86,7 @@
 }
 
 .pascal .pascal__form .pascal__button:focus, .pascal .pascal__form .pascal__button:hover, .pascal .pascal__form .pascal__button:active {
-  border: 2px solid #0087F5;
+  border: 3px solid #0087F5;
   border-left-width: 0;
   outline: 0;
 }
@@ -110,6 +111,7 @@
   margin-top: 5px;
   -webkit-animation: 0.3s ease-out 0s 1 normal forwards an-showErrorMessage;
           animation: 0.3s ease-out 0s 1 normal forwards an-showErrorMessage;
+  font-size: 0.9em;
 }
 
 .pascal .pascal__pascal-triangle {
@@ -121,6 +123,7 @@
   font-size: 0.8em;
   -webkit-animation: 0.6s ease-out 0s 1 normal forwards an-showTriangle;
           animation: 0.6s ease-out 0s 1 normal forwards an-showTriangle;
+  overflow-y: auto;
 }
 
 .pascal .pascal__pascal-triangle .pascal-triangle__row {
@@ -154,8 +157,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   margin: 0;
-  border-left: 1px solid #EFEFEF;
-  border-right: 1px solid #EFEFEF;
+  border: 2px solid #EFEFEF;
 }
 
 .pascal .pascal__pascal-triangle .pascal-triangle__row .pascal-triangle__column span {
@@ -163,4 +165,18 @@
   padding: 10px;
   text-align: center;
   overflow: hidden;
+}
+
+.pascal .pascal__loader {
+  display: inline-block;
+  width: 100%;
+  color: #0087F5;
+}
+
+.pascal .pascal__loader i {
+  font-size: 3em;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-animation: 1s linear 0s infinite normal forwards an-iconLoad;
+          animation: 1s linear 0s infinite normal forwards an-iconLoad;
 }

@@ -16,16 +16,18 @@
       required
     />
     <button class="pascal__button pascal__button--submit">
-        <img src="./assets/images/logo-icon.png" />
+        <img src="assets/images/logo-icon.png" />
     </button>
-    <div class="pascal__error" *ngIf="invalidRowInput">
-      Please enter a positive real number
+    <div class="pascal__error" *ngIf="!validRowInput">
+      Enter a positive real number from 1-100
     </div>
   </form>
+  <div class="pascal__loader" *ngIf="loadingPascal">
+    <i class="fas fa-spinner"></i>
+  </div>
   <div 
     class="pascal__pascal-triangle pascal-triangle" 
     *ngIf="pascalArray.length > 0"
-    [ngStyle]="{'grid-template-columns': 'repeat(' + row + ', 1fr)'}"
     >
     <ul class="pascal-triangle__row" *ngFor="let row of pascalArray">
       <li 
