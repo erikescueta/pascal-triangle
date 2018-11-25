@@ -15,7 +15,7 @@
       #rowNumber="ngModel"
       required
     />
-    <button class="pascal__button pascal__button--submit">
+    <button class="pascal__button pascal__button--submit" onTap(generatePascal())>
         <img src="assets/images/logo-icon.png" />
     </button>
     <div class="pascal__error" *ngIf="!validRowInput">
