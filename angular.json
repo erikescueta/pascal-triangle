@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "exam-samples": {
+    "pascal-triangle": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -106,7 +106,7 @@
         }
       }
     },
-    "exam-samples-e2e": {
+    "pascal-triangle-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
